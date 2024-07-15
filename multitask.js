@@ -2,6 +2,8 @@ const https = require('https');
 const crypto = require('crypto');
 const fs = require('fs');
 
+process.env.UV_THREADPOOL_SIZE = 4;
+
 const start = Date.now();
 
 function doRequest() {
@@ -9,7 +11,7 @@ function doRequest() {
         .request('https://www.microsoft.com', res => {
             res.on('data', () => { });
             res.on('end', () => {
-                console.log(Date.now() - start);
+                console.log("HTTPS Request: ", Date.now() - start);
             });
         })
         .end();
