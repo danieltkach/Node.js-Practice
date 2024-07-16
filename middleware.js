@@ -32,7 +32,7 @@ server.get("/", (req, res) => {
 });
 
 server.get("/r", (req, res) => {
-    res.redirect("https://www.youtube.com");
+    res.redirect("https://www.nodejs.org");
 });
 
 server.listen(3000, () => { console.log('Listening...'); });
